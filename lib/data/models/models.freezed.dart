@@ -21,7 +21,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 class _$UserTearOff {
   const _$UserTearOff();
 
-  _User call({required int id, required String name}) {
+  _User call({int? id, required String name}) {
     return _User(
       id: id,
       name: name,
@@ -38,7 +38,7 @@ const $User = _$UserTearOff();
 
 /// @nodoc
 mixin _$User {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ mixin _$User {
 abstract class $UserCopyWith<$Res> {
   factory $UserCopyWith(User value, $Res Function(User) then) =
       _$UserCopyWithImpl<$Res>;
-  $Res call({int id, String name});
+  $Res call({int? id, String name});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$UserCopyWithImpl<$Res> implements $UserCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -84,7 +84,7 @@ abstract class _$UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   factory _$UserCopyWith(_User value, $Res Function(_User) then) =
       __$UserCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String name});
+  $Res call({int? id, String name});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,12 +117,12 @@ class __$UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_User implements _User {
-  const _$_User({required this.id, required this.name});
+  const _$_User({this.id, required this.name});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final String name;
 
@@ -159,12 +159,12 @@ class _$_User implements _User {
 }
 
 abstract class _User implements User {
-  const factory _User({required int id, required String name}) = _$_User;
+  const factory _User({int? id, required String name}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @override
   String get name => throw _privateConstructorUsedError;
   @override
@@ -181,7 +181,7 @@ class _$ClickTearOff {
   const _$ClickTearOff();
 
   _Click call(
-      {required int id,
+      {int? id,
       required int userId,
       required int change,
       required DateTime createdAt}) {
@@ -203,7 +203,7 @@ const $Click = _$ClickTearOff();
 
 /// @nodoc
 mixin _$Click {
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   int get userId => throw _privateConstructorUsedError;
   int get change => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -217,7 +217,7 @@ mixin _$Click {
 abstract class $ClickCopyWith<$Res> {
   factory $ClickCopyWith(Click value, $Res Function(Click) then) =
       _$ClickCopyWithImpl<$Res>;
-  $Res call({int id, int userId, int change, DateTime createdAt});
+  $Res call({int? id, int userId, int change, DateTime createdAt});
 }
 
 /// @nodoc
@@ -239,7 +239,7 @@ class _$ClickCopyWithImpl<$Res> implements $ClickCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -261,7 +261,7 @@ abstract class _$ClickCopyWith<$Res> implements $ClickCopyWith<$Res> {
   factory _$ClickCopyWith(_Click value, $Res Function(_Click) then) =
       __$ClickCopyWithImpl<$Res>;
   @override
-  $Res call({int id, int userId, int change, DateTime createdAt});
+  $Res call({int? id, int userId, int change, DateTime createdAt});
 }
 
 /// @nodoc
@@ -284,7 +284,7 @@ class __$ClickCopyWithImpl<$Res> extends _$ClickCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       userId: userId == freezed
           ? _value.userId
           : userId // ignore: cast_nullable_to_non_nullable
@@ -305,7 +305,7 @@ class __$ClickCopyWithImpl<$Res> extends _$ClickCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Click implements _Click {
   const _$_Click(
-      {required this.id,
+      {this.id,
       required this.userId,
       required this.change,
       required this.createdAt});
@@ -314,7 +314,7 @@ class _$_Click implements _Click {
       _$$_ClickFromJson(json);
 
   @override
-  final int id;
+  final int? id;
   @override
   final int userId;
   @override
@@ -363,7 +363,7 @@ class _$_Click implements _Click {
 
 abstract class _Click implements Click {
   const factory _Click(
-      {required int id,
+      {int? id,
       required int userId,
       required int change,
       required DateTime createdAt}) = _$_Click;
@@ -371,7 +371,7 @@ abstract class _Click implements Click {
   factory _Click.fromJson(Map<String, dynamic> json) = _$_Click.fromJson;
 
   @override
-  int get id => throw _privateConstructorUsedError;
+  int? get id => throw _privateConstructorUsedError;
   @override
   int get userId => throw _privateConstructorUsedError;
   @override

@@ -6,8 +6,9 @@ part of 'models.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+// ignore_for_file: non_constant_identifier_names
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       name: json['name'] as String,
     );
 
@@ -17,7 +18,7 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
     };
 
 _$_Click _$$_ClickFromJson(Map<String, dynamic> json) => _$_Click(
-      id: json['id'] as int,
+      id: json['id'] as int?,
       userId: json['userId'] as int,
       change: json['change'] as int,
       createdAt: DateTime.parse(json['createdAt'] as String),

@@ -7,7 +7,7 @@ part 'models.g.dart';
 @Freezed()
 class User with _$User {
   const factory User({
-    required int id,
+    int? id,
     required String name,
   }) = _User;
 
@@ -18,7 +18,7 @@ class User with _$User {
 @Freezed()
 class Click with _$Click {
   const factory Click({
-    required int id,
+    int? id,
     required int userId,
     required int change,
     required DateTime createdAt,

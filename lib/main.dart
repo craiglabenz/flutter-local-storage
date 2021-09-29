@@ -6,7 +6,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final db = DataBackend(
     // delegate: Sqflite(),
-    delegate: constructDb(),
+    // delegate: constructDb(),
+    delegate: HiveDelegate(),
   );
   await db.ready();
   runApp(MyApp(db: db));
@@ -56,9 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Future<void> loadClicks() async {
-    print(DateTime.now());
     int _previousCount = await widget.db.clicksResult();
-    print(DateTime.now());
     setState(() => _counter = _previousCount);
   }
 
@@ -80,7 +79,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Future<void> _updateUsers() async {
     _users = await widget.db.getAllUsers();
-    print('_users: $_users');
     setState(() {});
   }
 
@@ -155,24 +153,31 @@ class UserClicksPage extends StatelessWidget {
   final List<Click> clicks;
 
   @override
-  Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text(user.name)),
-        body: SafeArea(
-          child: Center(
-            child: Column(
-              children: <Widget>[
-                Text(
+  Widget build(BuildContext context) {
+    final now = DateTime.now().toUtc();
+    return Scaffold(
+      appBar: AppBar(title: Text(user.name)),
+      body: SafeArea(
+        child: Center(
+          child: ListView(
+            children: <Widget>[
+              Center(
+                child: Text(
                   'Clicks for ${user.name}',
                   style: Theme.of(context).textTheme.headline4,
                 ),
-                for (final click in clicks)
-                  Text(
-                    '${click.change > 0 ? "👍" : "👎"} at ${click.createdAt.toLocal()}',
-                    style: Theme.of(context).textTheme.headline5,
+              ),
+              for (final click in clicks)
+                Card(
+                  child: ListTile(
+                    leading: Text(click.change > 0 ? "👍" : "👎"),
+                    title: Text('${now.difference(click.createdAt)} ago'),
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
         ),
-      );
+      ),
+    );
+  }
 }
